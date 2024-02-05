@@ -1,0 +1,19 @@
+[{
+    "id": 1,
+    "name": "V type engine",
+    "minPrice": 30,
+    "maxPrice": 60,
+    "twoHanded": true
+}, {
+    "id": 2,
+    "name": "Tattered metal sheet",
+    "minPrice": 20,
+    "maxPrice": 45,
+    "twoHanded": false
+}, {
+    "id": 3,
+    "name": "Comedy",
+    "minPrice": 35,
+    "maxPrice": 65,
+    "twoHanded": false
+}]

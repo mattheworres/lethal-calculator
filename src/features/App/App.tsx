@@ -1,13 +1,12 @@
 import './App.css';
 import { Header } from './Header';
+import { ProfitCalc } from '../ProfitCalc/ProfitCalc';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div className="Body">
-        Hello.
-      </div>
+      <ProfitCalc />
     </div>
   );
 }

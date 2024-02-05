@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { SiteColors } from '../theme/colors';
 
 const appTitle = "Lethal Calculator";
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages: any[] = [];
 
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
