@@ -1,0 +1,7 @@
+Background, foreground (text)
+
+#ac00e8, #ffffff
+#f00077, #000000
+#ff0000, #000000
+#ff6000, #000000
+#fcc400, #000000
