@@ -1,10 +1,16 @@
 #itemSelectorContainer {
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-span.itemQty {
+#selectedItemsContainer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#selectedItemsContainer span.itemQty {
     font-weight: bold;
 }

@@ -34,6 +34,7 @@ export const themeOptions: ThemeOptions = {
   components: {
     MuiTextField: {
       styleOverrides: {
+        // HUGE H/T to DragoJokera: https://stackoverflow.com/a/70252930/324527
         root: {
           '& .MuiInput-underline:after': {
             borderBottomColor: BaseColors.Black,

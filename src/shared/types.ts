@@ -4,6 +4,7 @@ interface ItemFromJson {
   name: string;
   minPrice: number;
   maxPrice: number;
+  avgPrice: number;
   twoHanded: boolean;
 }
 

@@ -96,7 +96,6 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
                 required
                 type="number"
                 value={quantity}
-                name="quantity"
                 label="Quantity"
                 onKeyDown={handleQuantityKeyDown}
                 sx={{display: 'inline-block', ml: "10px"}} />
