@@ -3,17 +3,20 @@
     "name": "V type engine",
     "minPrice": 30,
     "maxPrice": 60,
+    "avgPrice": 45,
     "twoHanded": true
 }, {
     "id": 2,
     "name": "Tattered metal sheet",
     "minPrice": 20,
     "maxPrice": 45,
+    "avgPrice": 32.5,
     "twoHanded": false
 }, {
     "id": 3,
     "name": "Comedy",
     "minPrice": 35,
     "maxPrice": 65,
+    "avgPrice": 50,
     "twoHanded": false
 }]

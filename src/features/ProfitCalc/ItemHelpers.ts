@@ -18,4 +18,8 @@ const generateRemainingOptions = (selectedItems: SelectedProfitCalcItems): Selec
     .map(item => ({id: item.id, label: item.name}));
 };
 
-export { getItemById, generateRemainingOptions };
+const currencyFormat = (value: number) => {
+  return value.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
+
+export { getItemById, generateRemainingOptions, currencyFormat };

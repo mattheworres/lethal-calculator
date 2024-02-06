@@ -4,19 +4,19 @@ import { ItemsSelector } from "./ItemsSelector";
 import { SelectedItemsDisplay } from "./SelectedItemsDisplay";
 import { generateRemainingOptions } from './ItemHelpers';
 import './ProfitCalc.css';
+import { TotalProfitDash } from './TotalProfitDash';
 
 const ProfitCalc = () => {
   const [selectedItems, setSelectedItems] = useState<SelectedProfitCalcItems>({});
   const [profitQuota/* , setProfitQuota */] = useState<number>(0);
   const remainingOptions = generateRemainingOptions(selectedItems);
+  const showProfitRelatedItems = Object.keys(selectedItems).length > 0;
 
   const addItem = (id: number, quantity: number) => {
     console.log('Add item called', id, quantity);
     const newSelectedItems = {...selectedItems, [id]: quantity};
     setSelectedItems(newSelectedItems);
   };
-
-  const showProfitQuota = Object.keys(selectedItems).length > 0;
 
   return (
     <>
@@ -28,7 +28,7 @@ const ProfitCalc = () => {
         <Typography variant="subtitle1">Add your items to get started.</Typography>
         <ItemsSelector remainingOptions={remainingOptions} addItem={addItem} />
         <SelectedItemsDisplay selectedItems={selectedItems} />
-        {showProfitQuota && <TextField
+        {showProfitRelatedItems && <TextField
           type="number"
           value={profitQuota}
           label="Profit Quota (optional)"
@@ -37,7 +37,7 @@ const ProfitCalc = () => {
           }}
         />}
       </Paper>
-      <Card>Total Profit Calc</Card>
+      {showProfitRelatedItems && <TotalProfitDash selectedItems={selectedItems} />}
       <Card>Closest to Quota</Card>
       <Card>Fastest to Quota</Card>
     </>

@@ -14,3 +14,37 @@
 #selectedItemsContainer span.itemQty {
     font-weight: bold;
 }
+
+#totalProfitDash {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#totalProfitDash div.left, #totalProfitDash div.right {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#totalProfitDash h1 {
+    font-weight: 700;
+}
+
+#totalProfitDash h3 {
+    font-weight: 700;
+}
+
+#totalProfitDash h1 span.adornment {
+    font-size: 4rem;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+#totalProfitDash h3 span.adornment {
+    font-size: 2rem;
+    font-weight: normal;
+    vertical-align: middle;
+}

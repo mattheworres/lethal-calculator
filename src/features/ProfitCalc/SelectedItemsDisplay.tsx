@@ -14,6 +14,7 @@ const SelectedItems = memo(({selectedItems}: SelectedItemsDisplayProps) => {
     return Object.keys(selectedItems).map((id: string) => {
         const fullItem = getItemById(parseInt(id, 10));
         const quantity = selectedItems[parseInt(id, 10)];
+        console.log(`Oh hai, well we have what? ${typeof quantity}`);
 
         const label = <span>{fullItem.name} <span className="itemQty">x{quantity}</span></span>
 

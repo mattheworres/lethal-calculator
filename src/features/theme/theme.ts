@@ -53,6 +53,14 @@ export const themeOptions: ThemeOptions = {
           }
         }
       }
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          margin: '10px',
+          padding: '10px'
+        }
+      }
     }
   }
 };

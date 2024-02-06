@@ -17,6 +17,7 @@ interface SelectedProfitCalcItems {
   [key: number]: number;
 }
 
+// TODO: is this item array necessary?
 interface ProfitCalcItemArray {
   selectedItems: SelectedProfitCalcItems[];
 }
