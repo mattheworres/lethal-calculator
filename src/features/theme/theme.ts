@@ -31,4 +31,27 @@ export const themeOptions: ThemeOptions = {
       disabled: alpha(BaseColors.Black, 0.4)
     }
   },
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiInput-underline:after': {
+            borderBottomColor: BaseColors.Black,
+          },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: BaseColors.Black,
+            },
+            '&:hover fieldset': {
+              borderColor: BaseColors.Black,
+              borderWidth: '0.15rem',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: BaseColors.Black,
+            },
+          }
+        }
+      }
+    }
+  }
 };

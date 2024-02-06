@@ -9,8 +9,17 @@ interface SelectedItemsDisplayProps {
 const SelectedItemsDisplay = memo(({selectedItems}: SelectedItemsDisplayProps) => {
     return Object.keys(selectedItems).map((id: string) => {
         const fullItem = getItemById(parseInt(id, 10));
+        const quantity = selectedItems[parseInt(id, 10)];
 
-        return <Chip color="primary" key={fullItem.id} label={fullItem.name} />
+        const label = <span>{fullItem.name} <span className="itemQty">x{quantity}</span></span>
+
+        return <Chip 
+            color="primary"
+            key={fullItem.id}
+            label={label}
+            sx={{
+                mx: "2px"
+            }} />
     });
 });
 

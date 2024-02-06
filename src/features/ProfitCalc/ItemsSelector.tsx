@@ -1,4 +1,3 @@
-import './ItemsSelector.css';
 import { Autocomplete, AutocompleteChangeReason, Button, TextField } from "@mui/material";
 import { useState, useRef, useEffect } from "react";
 import { AutocompleteChangeReasons, ReactKeypressDownValues } from '../../shared/enums';
@@ -85,7 +84,7 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
                 options={remainingOptions}
                 value={selectedItem}
                 onChange={handleOnAutocompleteChange}
-                renderInput={(params) => <TextField {...params} inputRef={itemRef} helperText="Select an item" />}
+                renderInput={(params) => <TextField {...params} inputRef={itemRef} label="Select an item" />}
                 sx={{
                     width: '25%',
                     display: 'inline-block'
@@ -98,10 +97,9 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
                 type="number"
                 value={quantity}
                 name="quantity"
-                helperText="Quantity"
-                variant="filled"
+                label="Quantity"
                 onKeyDown={handleQuantityKeyDown}
-                sx={{display: 'inline-block'}} />
+                sx={{display: 'inline-block', ml: "10px"}} />
             <Button
                 variant="contained"
                 color="primary"

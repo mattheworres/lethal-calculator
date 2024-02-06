@@ -3,6 +3,7 @@ import { Card, Paper, Typography } from "@mui/material";
 import { ItemsSelector } from "./ItemsSelector";
 import { SelectedItemsDisplay } from "./SelectedItemsDisplay";
 import { generateRemainingOptions } from './ItemHelpers';
+import './ProfitCalc.css';
 
 const ProfitCalc = () => {
   const [selectedItems, setSelectedItems] = useState<SelectedProfitCalcItems>({});
