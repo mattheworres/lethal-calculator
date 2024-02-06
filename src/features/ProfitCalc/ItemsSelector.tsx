@@ -53,6 +53,8 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
         setSelectedItem(defaultItem);
         setQuantity(defaultQuantity);
 
+        valid.current = false;
+
         itemRef.current && itemRef.current.focus();
     }
 
@@ -105,7 +107,10 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
                 color="primary"
                 size="medium"
                 disabled={!valid.current}
-                onClick={handleAddClick}>
+                onClick={handleAddClick}
+                sx={{
+                    ml: '10px'
+                }}>
                     Add
             </Button>
         </div>
