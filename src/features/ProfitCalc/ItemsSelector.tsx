@@ -19,18 +19,12 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
     const valid = useRef<boolean>(false);
 
     const handleOnAutocompleteChange = (_event: React.SyntheticEvent, option: SelectListItem | null, reason: AutocompleteChangeReason) => {
-        _event.preventDefault();
-        console.log(`hoac called. reason: ${reason}, option: `, option);
-        
         if (reason === AutocompleteChangeReasons.Clear) {
             setSelectedItem(defaultItem);
         } else if (reason === AutocompleteChangeReasons.SelectOption) {
-            console.log('uh, so SO?');
             if (option === null) {
-                console.log('return early from SO');
                 return;
             }
-            console.log('selected item letsgooooooo');
 
             setSelectedItem(option);
             quantityRef.current && quantityRef.current.focus();
