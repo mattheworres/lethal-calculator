@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Card, Paper, Typography } from "@mui/material";
-import { ItemTypeahead } from "./ItemTypeahead";
+import { ItemsSelector } from "./ItemsSelector";
 import { SelectedItemsDisplay } from "./SelectedItemsDisplay";
+import { generateRemainingOptions } from './ItemHelpers';
 
 const ProfitCalc = () => {
-  const [selectedItems, setSelectedItems] = useState<ProfitCalcItem>({});
+  const [selectedItems, setSelectedItems] = useState<SelectedProfitCalcItems>({});
+  const remainingOptions = generateRemainingOptions(selectedItems);
 
   const addItem = (id: number, quantity: number) => {
     console.log('Add item called', id, quantity);
@@ -20,7 +22,7 @@ const ProfitCalc = () => {
       }}>
         <Typography variant="h3">Profit Calculations</Typography>
         <Typography variant="subtitle1">Add your items to get started.</Typography>
-        <ItemTypeahead addItem={addItem} />
+        <ItemsSelector remainingOptions={remainingOptions} addItem={addItem} />
         <SelectedItemsDisplay selectedItems={selectedItems} />
         <div>Profit quota input here</div>
       </Paper>

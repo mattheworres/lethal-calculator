@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 interface ItemFromJson {
   id: number;
   name: string;
@@ -6,10 +7,15 @@ interface ItemFromJson {
   twoHanded: boolean;
 }
 
-interface ProfitCalcItem {
-  [key: number]: number
+interface SelectListItem {
+  id: number;
+  label: string;
+}
+
+interface SelectedProfitCalcItems {
+  [key: number]: number;
 }
 
 interface ProfitCalcItemArray {
-  selectedItems: ProfitCalcItem[]
+  selectedItems: SelectedProfitCalcItems[];
 }

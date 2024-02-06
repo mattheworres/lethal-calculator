@@ -13,4 +13,9 @@ const getItemById = (id: number): ItemFromJson => {
   return foundItem;
 }
 
-export { getItemById };
+const generateRemainingOptions = (selectedItems: SelectedProfitCalcItems): SelectListItem[] => {
+  return items.filter(item => !(item.id in selectedItems))
+    .map(item => ({id: item.id, label: item.name}));
+};
+
+export { getItemById, generateRemainingOptions };
