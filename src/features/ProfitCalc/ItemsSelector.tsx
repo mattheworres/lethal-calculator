@@ -81,6 +81,7 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
         <div id="itemSelectorContainer">
             <Autocomplete
                 disablePortal
+                autoHighlight
                 options={remainingOptions}
                 value={selectedItem}
                 onChange={handleOnAutocompleteChange}

@@ -27,7 +27,7 @@ const ProfitCalc = () => {
         <Typography variant="h3">Profit Calculations</Typography>
         <Typography variant="subtitle1">Add your items to get started.</Typography>
         <ItemsSelector remainingOptions={remainingOptions} addItem={addItem} />
-        <SelectedItemsDisplay selectedItems={selectedItems} />
+        <SelectedItemsDisplay items={items} selectedItems={selectedItems} />
         {showProfitRelatedItems && <TextField
           type="number"
           value={profitQuota}
@@ -37,7 +37,7 @@ const ProfitCalc = () => {
           }}
         />}
       </Paper>
-      {showProfitRelatedItems && <TotalProfitDash selectedItems={selectedItems} />}
+      {showProfitRelatedItems && <TotalProfitDash items={items} selectedItems={selectedItems} />}
       <Card>Closest to Quota</Card>
       <Card>Fastest to Quota</Card>
     </>

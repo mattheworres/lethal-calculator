@@ -1,6 +1,4 @@
-import items from '../Data/items.json';
-
-const getItemById = (id: number): ItemFromJson => {
+const getItemById = (items: ItemFromJson[], id: number): ItemFromJson => {
   let foundItem!: ItemFromJson;
 
   items.forEach((item: ItemFromJson) => {

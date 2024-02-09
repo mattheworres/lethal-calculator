@@ -1,4 +1,23 @@
-import { generateRemainingOptions, currencyFormat } from "./ItemHelpers";
+import { getItemById, generateRemainingOptions, currencyFormat } from "./ItemHelpers";
+
+describe('getItemById', () => {
+    const items: ItemFromJson[] = [
+        { id: 1, name: 'Item 1', minPrice: 10, maxPrice: 20, avgPrice: 15, weight: 1, twoHanded: false, conductive: true, hasBattery: false },
+        { id: 2, name: 'Item 2', minPrice: 20, maxPrice: 30, avgPrice: 25, weight: 2, twoHanded: true, conductive: false, hasBattery: true },
+        { id: 3, name: 'Item 3', minPrice: 30, maxPrice: 40, avgPrice: 35, weight: 3, twoHanded: false, conductive: true, hasBattery: false },
+    ];
+
+    it('returns the correct item by id', () => {
+        const id = 2;
+        const expected = { id: 2, name: 'Item 2', minPrice: 20, maxPrice: 30, avgPrice: 25, weight: 2, twoHanded: true, conductive: false, hasBattery: true };
+        expect(getItemById(items, id)).toEqual(expected);
+    });
+
+    it('returns undefined for an id that does not exist', () => {
+        const id = 4;
+        expect(getItemById(items, id)).toBeUndefined();
+    });
+});
 
 describe('generateRemainingOptions', () => {
     const items: ItemFromJson[] = [
