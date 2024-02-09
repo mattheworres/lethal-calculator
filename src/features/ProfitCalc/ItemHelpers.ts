@@ -1,4 +1,4 @@
-import items from '../Data/items.json'
+import items from '../Data/items.json';
 
 const getItemById = (id: number): ItemFromJson => {
   let foundItem!: ItemFromJson;
@@ -13,7 +13,7 @@ const getItemById = (id: number): ItemFromJson => {
   return foundItem;
 }
 
-const generateRemainingOptions = (selectedItems: SelectedProfitCalcItems): SelectListItem[] => {
+const generateRemainingOptions = (items: ItemFromJson[], selectedItems: SelectedProfitCalcItems): SelectListItem[] => {
   return items.filter(item => !(item.id in selectedItems))
     .map(item => ({id: item.id, label: item.name}));
 };

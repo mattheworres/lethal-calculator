@@ -5,7 +5,10 @@ interface ItemFromJson {
   minPrice: number;
   maxPrice: number;
   avgPrice: number;
+  weight: number;
   twoHanded: boolean;
+  conductive: boolean;
+  hasBattery: boolean;
 }
 
 interface SelectListItem {

@@ -3,17 +3,17 @@ import { Card, Paper, TextField, Typography } from "@mui/material";
 import { ItemsSelector } from "./ItemsSelector";
 import { SelectedItemsDisplay } from "./SelectedItemsDisplay";
 import { generateRemainingOptions } from './ItemHelpers';
+import items from '../Data/items.json';
 import './ProfitCalc.css';
 import { TotalProfitDash } from './TotalProfitDash';
 
 const ProfitCalc = () => {
   const [selectedItems, setSelectedItems] = useState<SelectedProfitCalcItems>({});
   const [profitQuota/* , setProfitQuota */] = useState<number>(0);
-  const remainingOptions = generateRemainingOptions(selectedItems);
+  const remainingOptions = generateRemainingOptions(items, selectedItems);
   const showProfitRelatedItems = Object.keys(selectedItems).length > 0;
 
   const addItem = (id: number, quantity: number) => {
-    console.log('Add item called', id, quantity);
     const newSelectedItems = {...selectedItems, [id]: quantity};
     setSelectedItems(newSelectedItems);
   };
