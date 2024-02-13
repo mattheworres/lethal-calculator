@@ -18,6 +18,7 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
     const valid = useRef<boolean>(false);
 
     const handleOnAutocompleteChange = (_event: React.SyntheticEvent, option: SelectListItem | null, reason: AutocompleteChangeReason) => {
+        console.log(`ACR is ${reason}`);
         if (reason === AutocompleteChangeReasons.Clear) {
             setSelectedItem(defaultItem);
         } else if (reason === AutocompleteChangeReasons.SelectOption) {
@@ -39,7 +40,8 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
         const value = event.currentTarget && event.currentTarget.value;
         const parsedValue = parseInt(value, 10);
 
-        if (isNaN(parsedValue)) {
+        //Ensure we only have numeric input
+        if (isNaN(parsedValue) || parsedValue < 1) {
             return;
         }
 
@@ -73,8 +75,14 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
         addItemAndResetForm();
     }
 
+    const autocompleteEquality = (option: SelectListItem, value: SelectListItem) => {
+        return option.id === value.id;
+    }
+
     useEffect(() => {
-        valid.current = selectedItem.id > 0;
+        const old = valid.current;
+        valid.current = selectedItem.id > 0 && quantity > 0;
+        console.log(`Valid just set to ${valid.current}, was ${old} and ID is ${selectedItem.id}, qhile qty is ${quantity}`);
     }, [selectedItem, quantity])
 
     return (
@@ -82,10 +90,12 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
             <Autocomplete
                 disablePortal
                 autoHighlight
+                isOptionEqualToValue={autocompleteEquality}
                 options={remainingOptions}
                 value={selectedItem}
+                data-testid="autocomplete"
                 onChange={handleOnAutocompleteChange}
-                renderInput={(params) => <TextField {...params} inputRef={itemRef} label="Select an item" />}
+                renderInput={params => <TextField {...params} inputRef={itemRef} inputProps={{ ...params.inputProps, "data-testid": "autocompleteInput" }} label="Select an item" />}
                 sx={{
                     width: '25%',
                     display: 'inline-block'
@@ -97,6 +107,7 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
                 required
                 type="number"
                 value={quantity}
+                inputProps={{"data-testid": "quantity"}}
                 label="Quantity"
                 onKeyDown={handleQuantityKeyDown}
                 sx={{display: 'inline-block', ml: "10px"}} />
@@ -104,8 +115,10 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
                 variant="contained"
                 color="primary"
                 size="medium"
+                data-testid="addButton"
                 disabled={!valid.current}
                 onClick={handleAddClick}
+                
                 sx={{
                     ml: '10px'
                 }}>

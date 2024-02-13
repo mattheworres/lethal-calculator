@@ -22,6 +22,8 @@ const SelectedItems = memo(({items, selectedItems}: SelectedItemsDisplayProps) =
         return <Chip
             color="primary"
             key={fullItem.id}
+            className="itemChip"
+            data-testid='item-chip'
             label={label}
             onDelete={onDelete}
             sx={{
