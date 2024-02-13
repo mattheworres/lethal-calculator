@@ -18,7 +18,6 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
     const valid = useRef<boolean>(false);
 
     const handleOnAutocompleteChange = (_event: React.SyntheticEvent, option: SelectListItem | null, reason: AutocompleteChangeReason) => {
-        console.log(`ACR is ${reason}`);
         if (reason === AutocompleteChangeReasons.Clear) {
             setSelectedItem(defaultItem);
         } else if (reason === AutocompleteChangeReasons.SelectOption) {
@@ -80,9 +79,7 @@ const ItemsSelector = ({remainingOptions, addItem}: ItemsSelectorProps) => {
     }
 
     useEffect(() => {
-        const old = valid.current;
         valid.current = selectedItem.id > 0 && quantity > 0;
-        console.log(`Valid just set to ${valid.current}, was ${old} and ID is ${selectedItem.id}, qhile qty is ${quantity}`);
     }, [selectedItem, quantity])
 
     return (

@@ -16,8 +16,7 @@ const TotalProfitDash = ({items, selectedItems}: TotalProfitDashProps) => {
         const intId = parseInt(id, 10);
         const matchingJsonObject = getItemById(items, intId);
         const quantity = selectedItems[intId];
-        const tempAvg = quantity * matchingJsonObject.avgPrice;
-        console.log(`Ok, so for ${matchingJsonObject.name} we have ${quantity} of them, avg is ${matchingJsonObject.avgPrice}, which we have as ${tempAvg} to add to ${averageSum}`)
+
         averageSum += quantity * matchingJsonObject.avgPrice;
         maxSum += quantity * matchingJsonObject.maxPrice;
         minSum += quantity * matchingJsonObject.minPrice;
